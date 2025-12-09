@@ -62,6 +62,7 @@ def download_full_modlist(wabbajack_path: Path, download_dir: Path) -> None:
                 # Verify the hash
                 correctly_downloaded = hashing.compare_hash(output_path, hash_code)
                 if not correctly_downloaded:
+                    output_path.unlink()
                     print(f"Hash mismatch for {file_name}, re-downloading...")
     
     print("All files downloaded successfully.")
@@ -82,3 +83,4 @@ if __name__ == '__main__':
     
     # Start main download process
     download_full_modlist(args.wabbajack_path, args.download_dir)
+

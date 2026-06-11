@@ -31,7 +31,7 @@ def login() -> None:
     # Launch browser for manual login and save context
     with Camoufox(headless = False, persistent_context = True, user_data_dir = CONTEXT_DIR) as browser:
         page: Page = browser.new_page()
-        page.goto('https://www.nexusmods.com/') # Homepage
+        page.goto('https://www.nexusmods.com/auth/sign_in') # Login page
 
         # Wait for user to login manually
         input("Press Enter after logging in...")
